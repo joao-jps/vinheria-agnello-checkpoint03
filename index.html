@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vinharia Agnello</title>
+
+<!-- Chamando Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CHAMANDO CSS -->
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+
+  <body>
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header class="header">
+
+      <!-- ========================== LOGO  ==========================-->
+
+      <h1 class="logo">Vinharia <span>Agnello</span></h1>
+
+      <!-- Subtítulo / slogan -->
+      <p class="slogan">Tradição e elegância em cada taça desde 1982</p>
+    </header>
+
+    <!-- ===================== SEÇÃO SOBRE ===================== -->
+    <section class="sobre">
+      <h2>Sobre o Sistema</h2>
+      <p>
+        Este sistema foi desenvolvido para gerenciar o catálogo de vinhos da
+        Vinharia Agnello. Por meio de JavaScript puro, é possível listar todos
+        os vinhos do acervo, identificar vinhos com estoque baixo, calcular o
+        estoque total da vinícola e exibir os nomes formatados em caixa alta —
+        tudo via <code>console.log</code> e <code>alert()</code>.
+      </p>
+    </section>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main class="catalogo">
+      <h2>Nosso Acervo</h2>
+      <p class="instrucao">
+        Abra o <strong>Console do navegador</strong> (F12 → aba "Console") para
+        visualizar as informações do sistema.
+      </p>
+
+      <!-- Grade de cards visuais dos vinhos -->
+      <div id="cards-vinhos" class="cards-grid"></div>
+    </main>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="footer">
+
+      <p>&copy; 2026 Vinharia Agnello — Todos os direitos reservados.</p>
+    </footer>
+    
+    <!-- Chamando JavaScript -->
+    <script src="src/js/script.js"></script>
+    
+  </body>
+</html>
