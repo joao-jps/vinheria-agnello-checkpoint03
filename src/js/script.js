@@ -2,15 +2,11 @@
    Gerenciamento do catálogo de vinhos
    ========================================================= */
 
-
 /* =========================================================
-   1. ARRAY DE OBJETOS — O "banco de dados" dos vinhos
-   ---------------------------------------------------------
-   Um array é uma lista ordenada. Cada item aqui é um OBJETO,
-   que é uma estrutura com propriedades (chave: valor).
-   Os dados já vêm preenchidos no código (sem prompt()).
+   ARRAY DE OBJETOS — O "banco de dados" dos vinhos 
+   é como se fosse a pratilheira onde ficam os vinhos
    ========================================================= */
-const vinhos = [
+let vinhos = [
   { nome: "Château Agnello Reserva",  tipo: "Tinto",  safra: 2019, estoque: 12 },
   { nome: "Branco Flor de Pedra",     tipo: "Branco", safra: 2022, estoque:  4 },
   { nome: "Rosé Primavera",           tipo: "Rosé",   safra: 2023, estoque:  7 },
@@ -23,7 +19,7 @@ const vinhos = [
 
 
 /* =========================================================
-   2. FUNÇÃO — Listar todos os vinhos com forEach
+    FUNÇÃO — Listar todos os vinhos com forEach
    ---------------------------------------------------------
    forEach percorre CADA item do array e executa uma função.
    A variável "vinho" representa o item atual em cada volta.
@@ -32,18 +28,15 @@ function listarTodosVinhos() {
   
   console.log("CATÁLOGO COMPLETO DE VINHOS");
   
-
   vinhos.forEach(function (vinho) {
-    // Template literal (``) permite misturar texto e variáveis com ${}
     console.log(
       `• ${vinho.nome} | ${vinho.tipo} | Safra ${vinho.safra} | Estoque: ${vinho.estoque}`
     );
   });
 }
 
-
 /* =========================================================
-   3. FUNÇÃO — Estoque baixo com filter
+   FUNÇÃO — Estoque baixo com filter
    ---------------------------------------------------------
    filter cria um NOVO array apenas com os itens que passam
    na condição (estoque < 5). O array original não é alterado.
@@ -55,7 +48,7 @@ function mostrarEstoqueBaixo() {
   });
 
 
-  console.log("VINHOS COM ESTOQUE ABAIXO DE 5");
+  console.log("VINHOS COM ESTOQUE ABAIXO DE 5 UNIDADES:");
 
   if (estoqueBaixo.length === 0) {
     console.log("Nenhum vinho com estoque crítico.");
@@ -65,24 +58,20 @@ function mostrarEstoqueBaixo() {
     });
   }
 
-  return estoqueBaixo; // retornamos para poder exibir no alert() depois
+  return estoqueBaixo; // retornei para poder exibir no alert() depois
 }
 
 
 /* =========================================================
-   4. FUNÇÃO — Estoque total com reduce
-   ---------------------------------------------------------
-   reduce "reduz" o array a um único valor.
-   Funciona como um acumulador: começa em 0 e vai somando
-   o estoque de cada vinho a cada volta.
-   ========================================================= */
+   FUNÇÃO — Estoque total com reduce
+============ */
 function calcularEstoqueTotal() {
   const total = vinhos.reduce(function (acumulador, vinho) {
     return acumulador + vinho.estoque; // soma o estoque ao acumulador
   }, 0); // 0 é o valor inicial do acumulador
 
 
-  console.log(`   📦 ESTOQUE TOTAL DA VINÍCOLA: ${total} unidades`);
+  console.log(` ESTOQUE TOTAL DA VINÍCOLA: ${total} unidades`);
 
 
   return total;
@@ -102,7 +91,7 @@ function exibirNomesEmMaiusculo() {
   });
 
   console.log("\n--------------------------------------------");
-  console.log("   🔤 NOMES DOS VINHOS EM CAIXA ALTA        ");
+  console.log(" NOMES DOS VINHOS EM CAIXA ALTA  ");
   console.log("--------------------------------------------");
 
   nomesMaiusculos.forEach(function (nome) {
@@ -114,11 +103,7 @@ function exibirNomesEmMaiusculo() {
 
 
 /* =========================================================
-   6. FUNÇÃO — Renderizar cards visuais na página
-   ---------------------------------------------------------
-   Aqui manipulamos o DOM: buscamos o elemento <div id="cards-vinhos">
-   no HTML e preenchemos com um card para cada vinho.
-   innerHTML injeta HTML como string dentro do elemento.
+    FUNÇÃO — Renderizar cards visuais na página
    ========================================================= */
 function renderizarCards() {
   const container = document.getElementById("cards-vinhos");
@@ -145,12 +130,8 @@ function renderizarCards() {
 
 
 /* =========================================================
-   7. FUNÇÃO PRINCIPAL — Orquestra tudo e exibe os alerts
-   ---------------------------------------------------------
-   Chamamos todas as funções em sequência e, ao final,
-   usamos alert() para exibir um resumo ao usuário.
-   alert() bloqueia a execução até o usuário clicar em OK.
-   ========================================================= */
+    FUNÇÃO PRINCIPAL — Orquestra tudo e exibe os alerts
+========================================================= */
 function iniciarSistema() {
   // --- Executa as funções e salva os retornos ---
   listarTodosVinhos();
@@ -163,7 +144,7 @@ function iniciarSistema() {
 
   // --- ALERT: Resumo geral ---
   alert(
-    "🍷 VINHARIA AGNELLO — Sistema Iniciado!\n\n" +
+    " VINHARIA AGNELLO — Sistema Iniciado!\n\n" +
     `Total de vinhos no catálogo: ${vinhos.length}\n` +
     `Estoque total: ${totalEstoque} unidades\n\n` +
     "Abra o Console (F12) para ver os detalhes completos."
@@ -176,25 +157,21 @@ function iniciarSistema() {
       .join("\n");
 
     alert(
-      "⚠️ ATENÇÃO — Vinhos com estoque abaixo de 5:\n\n" + listaAlerta
+      " ATENÇÃO — Vinhos com estoque abaixo de 5:\n\n" + listaAlerta
     );
   }
 
   // --- ALERT: Nomes em caixa alta ---
   alert(
-    "🔤 NOMES DOS VINHOS EM CAIXA ALTA:\n\n" +
+    " NOMES DOS VINHOS EM CAIXA ALTA:\n\n" +
     nomesAltos.map((n) => "• " + n).join("\n")
   );
 }
 
 
 /* =========================================================
-   8. INICIALIZAÇÃO
-   ---------------------------------------------------------
-   Esperamos o HTML carregar completamente antes de rodar
-   o sistema. DOMContentLoaded é um evento que dispara
-   assim que o documento HTML foi lido pelo navegador.
-   ========================================================= */
+    INICIALIZAÇÃO
+   --------------------------------------------------------- = */
 document.addEventListener("DOMContentLoaded", function () {
   iniciarSistema();
 });

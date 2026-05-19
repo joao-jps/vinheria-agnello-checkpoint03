@@ -161,6 +161,66 @@ code {
   border-radius: 20px;
 }
 
+/* ---------- WRAPPER DO BOTÃO ---------- */
+/*
+  Centraliza o botão horizontalmente e adiciona
+  espaçamento abaixo antes da grade de cards.
+*/
+.btn-wrapper {
+  display: flex;           
+  align-items: center;     
+  gap: 1rem;               
+  justify-content: center; 
+  margin-bottom: 2rem;
+}
+ 
+/* ---------- BOTÃO "ADICIONAR VINHO" ---------- */
+
+.btn-adicionar {
+  background-color: var(--vinho);   
+  color: var(--creme);              
+  border: 2px solid var(--dourado); 
+  border-radius: 4px;
+  padding: 0.65rem 1.6rem;
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;                  
+  transition: background-color 0.2s, color 0.2s; /* animação suave */
+}
+ 
+/* Estado hover do botão — inverte as cores */
+.btn-adicionar:hover {
+  background-color: var(--dourado);
+  color: var(--vinho);
+}
+ 
+/* Estado active (clique) — feedback visual de pressão */
+.btn-adicionar:active {
+  transform: scale(0.97); /* encolhe levemente ao clicar */
+}
+ 
+/* ---------- CONTADOR DE VINHOS ADICIONADOS ---------- */
+/*
+  Pequeno texto ao lado do botão que mostra quantos
+  vinhos foram adicionados via clique nesta sessão.
+  Começa invisível (opacity: 0) e aparece via JS.
+*/
+.contador {
+  font-size: 0.82rem;
+  color: var(--vinho-claro);
+  letter-spacing: 0.04em;
+  opacity: 0;              /* invisível até o primeiro clique */
+  transition: opacity 0.3s;
+}
+ 
+/* Classe adicionada pelo JS para tornar o contador visível */
+.contador.visivel {
+  opacity: 1;
+}
+
+
 /* ---------- RODAPÉ ---------- */
 .footer {
   text-align: center;
